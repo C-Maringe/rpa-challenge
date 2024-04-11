@@ -2,6 +2,8 @@ import time
 import logging
 from RPA.Browser.Selenium import Selenium
 
+from src.utils.logger import create_logger
+
 logger = logging.getLogger(__name__)
 
 
@@ -26,10 +28,9 @@ def web_scrapping():
 
 
 def main():
-    logging.basicConfig(filename='myapp.log', level=logging.INFO)
-    logger.info('Started')
+    create_logger(__name__)
     web_scrapping()
-    logger.info('Finished')
+    logger.info('Finished Rpa Challenge process...')
 
 
 if __name__ == '__main__':
