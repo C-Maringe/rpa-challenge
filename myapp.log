@@ -1,0 +1,11 @@
+INFO:__main__:Started
+INFO:WDM:====== WebDriver manager ======
+INFO:RPA.core.webdriver:Downloaded webdriver to: C:\Users\HomePC\AppData\Local\robocorp\webdrivers\.wdm\drivers\chromedriver\win64\123.0.6312.122\chromedriver-win32/chromedriver.exe
+INFO:RobotFramework:Creating an instance of the Chrome WebDriver.
+INFO:RPA.Browser.Selenium:Created Chrome browser with arguments: --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox
+INFO:RobotFramework:<p>Attempted combinations:</p><div class="doc"><table><tr><th>Browser</th><th>Download</th><th>Error</th></tr><tr><td>Chrome</td><td>False</td><td>expected str, bytes or os.PathLike object, not NoneType</td></tr><tr><td>Chrome</td><td>True</td><td></td></tr></table></div>
+INFO:RobotFramework:Opening url 'https://google.com'
+INFO:__main__:Finished
+WARNING:urllib3.connectionpool:Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F5E1007D30>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/856b97963c6230f49b37ffd010e0a7ea
+WARNING:urllib3.connectionpool:Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F5E10384C0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/856b97963c6230f49b37ffd010e0a7ea
+WARNING:urllib3.connectionpool:Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F5E1039210>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/856b97963c6230f49b37ffd010e0a7ea

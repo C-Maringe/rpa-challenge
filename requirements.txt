@@ -1,0 +1,5 @@
+robotframework-browser==17.2.0
+rpaframework==24.1.2
+rpaframework-aws==5.2.8
+rpaframework-google==7.0.3
+rpaframework-recognition==5.1.2

@@ -1,16 +1,36 @@
-# This is a sample Python script.
+import time
+import logging
+from RPA.Browser.Selenium import Selenium
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+logger = logging.getLogger(__name__)
 
 
-# Press the green button in the gutter to run the script.
+def web_scrapping():
+    # Initialize Selenium library
+    lib = Selenium()
+
+    # Open the browser and navigate to the specified URL
+    lib.open_available_browser("https://google.com")
+
+    # Wait for 10 seconds
+    time.sleep(10)
+
+    # Get the page source
+    page_source = lib.get_source()
+
+    # Print the page source
+    print(page_source)
+
+    # Close the browser window
+    lib.close_browser()
+
+
+def main():
+    logging.basicConfig(filename='myapp.log', level=logging.INFO)
+    logger.info('Started')
+    web_scrapping()
+    logger.info('Finished')
+
+
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    main()
