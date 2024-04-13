@@ -1,1 +1,13 @@
 .venv
+
+# Ignore .xlsx files in src/files/excel
+src/files/excel/*.xlsx
+
+# Ignore image files in src/files/images
+/src/files/images/*.jpg
+/src/files/images/*.jpeg
+/src/files/images/*.png
+/src/files/images/*.gif
+/src/files/images/*.bmp
+/src/files/images/*.tiff
+

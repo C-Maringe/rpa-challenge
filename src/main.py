@@ -1,9 +1,12 @@
+import os
 import re
 from datetime import datetime
 
 import pandas as pd
 import time
 import logging
+
+import requests
 from RPA.Browser.Selenium import Selenium
 from bs4 import BeautifulSoup
 
@@ -19,11 +22,6 @@ search_phrase_element = "data-element='search-button'"
 search_input_element = "data-element='search-form-input'"
 search_button_element = "data-element='search-submit-button'"
 articles_list_element = "search-results-module-results-menu"
-
-# url = "https://www.reuters.com/"
-# search_phrase_element = "data-testid='Button'"
-# search_input_element = "data-testid='FormField:input'"
-# search_button_element = "data-testid='Button'"
 
 search_phrase = "how to cook"
 
@@ -122,16 +120,41 @@ def interact_with_page():
         description = get_element_text_safe(article_element, "promo-description")
 
         print(title, date, description)
+        picture_filename = ""
 
         img_element = article_element.find('img', class_='image')
         if img_element:
             image_src = img_element['src']
             print(f"Image source: {image_src}")
+            response = requests.get(image_src)
+            if response.status_code == 200:
+                directory_path = "./files/images"
+
+                # Create the directory if it doesn't exist
+                if not os.path.exists(directory_path):
+                    os.makedirs(directory_path)
+
+                # Extract filename from image_src
+                filename = image_src.split("/")[-1]
+                filename_parts = filename.split("%2")
+                if len(filename_parts) > 1:
+                    filename = filename_parts[-1]
+                if not any(filename.lower().endswith(ext) for ext in ['.jpg', '.jpeg', '.png', '.gif']):
+                    filename += '.jpg'
+                filepath = os.path.join(directory_path, filename)
+                print(filename, filepath)
+
+                # Save the image to the src/files/images directory
+                with open(filepath, 'wb') as f:
+                    f.write(response.content)
+
+                # Update the article_data with the image filename
+                picture_filename = filename
+                print(f"Image saved as {filename}")
+            else:
+                print("Failed to download image.")
         else:
             print("Image source not found.")
-
-        # image_element = article.find_element(".image") if article.find_elements(".image") else None
-        # image_url = image_element.get_attribute("src") if image_element else None
 
         # Count of search phrases in the title and description
         title_count = title.lower().count(search_phrase.lower()) if title else 0
@@ -144,7 +167,7 @@ def interact_with_page():
             "title": title,
             "date": date,
             "description": description,
-            # "picture_filename": image_url.split("/")[-1] if image_url else None,
+            "picture_filename": picture_filename,
             "title_description_search_count": title_count + description_count,
             "contains_money": contains_money
         }
