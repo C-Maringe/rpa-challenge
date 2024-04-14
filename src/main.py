@@ -22,8 +22,10 @@ search_phrase_element = "data-element='search-button'"
 search_input_element = "data-element='search-form-input'"
 search_button_element = "data-element='search-submit-button'"
 articles_list_element = "search-results-module-results-menu"
+next_page_element = "search-results-module-next-page"
 
-search_phrase = "how to cook"
+search_phrase = "trump"
+months = 1
 
 
 def extract_money(text):
@@ -55,9 +57,7 @@ def open_browser():
     lib.open_available_browser(url, headless=False)
 
 
-def interact_with_page():
-    print("Time caught here")
-
+def search_phrase_handler():
     lib.wait_until_element_is_visible(f"css:button[{search_phrase_element}]")
     search_button = search_element(f"css:button[{search_phrase_element}]")
     search_button.click()
@@ -70,11 +70,14 @@ def interact_with_page():
     search_submit_button = search_element(f"css:button[{search_button_element}]")
     search_submit_button.click()
 
+    time.sleep(2)
+
+
+def sort_by_newest():
     lib.wait_until_location_is_not(url)
-    current_url = lib.driver.current_url
-    print(f"Current URL: {current_url}")
 
     # Find the select element
+    lib.wait_until_element_is_visible("css:select.select-input")
     select_element = lib.find_element("css:select.select-input")
 
     # Click the select element to open the dropdown
@@ -89,10 +92,16 @@ def interact_with_page():
     lib.driver.execute_script("arguments[0].dispatchEvent(new Event('change', { bubbles: true }));", select_element)
 
     time.sleep(2)
-    lib.wait_until_location_is_not(current_url)
-    current_url = lib.driver.current_url
-    print(f"Current URL: {current_url}")
 
+
+def next_page():
+    lib.wait_until_element_is_visible(f"css:.{next_page_element}")
+    next_month = lib.find_element(f"css:.{next_page_element}")
+    next_month.click()
+    time.sleep(2)
+
+
+def get_articles():
     # Find the parent element containing all articles
     lib.wait_until_element_is_visible(f"css:ul.{articles_list_element}")
     articles_parent = search_element(f"css:ul.{articles_list_element}")
@@ -100,20 +109,12 @@ def interact_with_page():
     # Find all li elements directly under articles_parent
     all_li_elements = articles_parent.find_elements(by='tag name', value='li')
 
-    print(all_li_elements)
-
     articles_data = []
 
     # Iterate through each article
     for article in all_li_elements:
         article_html = article.get_attribute("outerHTML")
         article_element = BeautifulSoup(article_html, 'html.parser')
-        print(article_element)
-
-        # Extracting title
-        title_element = article_element.find(class_='promo-title')
-        print(title_element.text)
-        # print(article.find_element("h3", {"class": "promo-title"}).text)
 
         title = get_element_text_safe(article_element, "promo-title")
         date = get_element_text_safe(article_element, "promo-timestamp")
@@ -136,13 +137,12 @@ def interact_with_page():
 
                 # Extract filename from image_src
                 filename = image_src.split("/")[-1]
-                filename_parts = filename.split("%2")
+                filename_parts = filename.split("%2F")
                 if len(filename_parts) > 1:
                     filename = filename_parts[-1]
                 if not any(filename.lower().endswith(ext) for ext in ['.jpg', '.jpeg', '.png', '.gif']):
                     filename += '.jpg'
                 filepath = os.path.join(directory_path, filename)
-                print(filename, filepath)
 
                 # Save the image to the src/files/images directory
                 with open(filepath, 'wb') as f:
@@ -174,8 +174,12 @@ def interact_with_page():
 
         articles_data.append(article_data)
 
+    return articles_data
+
+
+def save_articles(combined_articles_data):
     # Convert to DataFrame
-    df = pd.DataFrame(articles_data)
+    df = pd.DataFrame(combined_articles_data)
     current_datetime = datetime.now().strftime("%Y%m%d%H%M%S")
 
     filename = f"./files/excel/data_{current_datetime}.xlsx"
@@ -185,14 +189,23 @@ def interact_with_page():
 
     print("Data saved to search_results.xlsx")
 
-    time.sleep(30000)
-
-    lib.close_browser()
-
 
 def web_scrapping():
     open_browser()
-    interact_with_page()
+
+    search_phrase_handler()
+    sort_by_newest()
+    combined_articles_data = []
+    if months <= 0:
+        print("No data for the selected period")
+    else:
+        for month in range(1, months + 1):
+            articles_data_returned = get_articles()
+            combined_articles_data.extend(articles_data_returned)
+            if months != month:
+                next_page()
+
+    save_articles(combined_articles_data)
 
     time.sleep(30000)
     lib.close_browser()
