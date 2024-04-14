@@ -23,8 +23,20 @@ search_input_element = "data-element='search-form-input'"
 search_button_element = "data-element='search-submit-button'"
 articles_list_element = "search-results-module-results-menu"
 next_page_element = "search-results-module-next-page"
+topics_list_element = "data-name='Topics'"
 
 search_phrase = "trump"
+categories = {
+    'sports': ['sports', 'football', 'basketball', 'baseball', 'tennis'],
+    'politics': ['politics', 'election', 'president', 'government', 'congress'],
+    'food': ['food', 'cooking', 'recipe', 'restaurant', 'chef'],
+    'entertainment': ['entertainment', 'movie', 'music', 'celebrity', 'tv show'],
+    'technology': ['technology', 'tech', 'innovation', 'software', 'gadget'],
+    'health': ['health', 'wellness', 'medical', 'fitness'],
+    'business': ['business', 'economy', 'finance', 'market'],
+    'environment': ['environment', 'climate', 'sustainability', 'green']
+}
+topic = "sports"
 months = 1
 
 
@@ -71,6 +83,61 @@ def search_phrase_handler():
     search_submit_button.click()
 
     time.sleep(2)
+
+
+def apply_topic_filters(all_topic_elements, category_keywords):
+    """Apply filters based on the category keywords."""
+    for topic_element in all_topic_elements:
+        try:
+            topic_html = topic_element.get_attribute("outerHTML")
+            topic_element_parser = BeautifulSoup(topic_html, 'html.parser')
+            topic_name_element = topic_element_parser.find("span")
+            topic_name = ""
+
+            if topic_name_element:
+                topic_name = topic_name_element.text.lower()
+                print(topic_name)
+            else:
+                print("No <span> element found")
+
+            if topic_name != "":
+                for keyword in category_keywords:
+                    if keyword in topic_name:
+                        try:
+                            checkbox_input = topic_element.find_element(by='tag name', value='input')
+                            checkbox_value = checkbox_input.get_attribute("value")
+                            if checkbox_input.is_selected():
+                                print("Checkbox is currently checked.")
+                            else:
+                                print("Checkbox is not currently checked.")
+                                lib.driver.execute_script(f"""
+                                        var checkbox = document.querySelector("input[value='{checkbox_value}']");
+                                        if (checkbox) {{
+                                            if (!checkbox.checked) {{
+                                                checkbox.click();
+                                            }}
+                                        }}
+                                    """)
+                        except Exception as e:
+                            print("No input element found within topic_element.")
+                        # break
+        except Exception as e:
+            # print(e)
+            print("Something went wrong here, but relax its not a bigger deal")
+
+
+def filter_by_category():
+    """Filter topics based on categories."""
+    lib.wait_until_element_is_visible(f"css:ul[{topics_list_element}]")
+    topic_container_element = lib.find_element(f"css:ul[{topics_list_element}]")
+    all_topic_elements = topic_container_element.find_elements(by='tag name', value='li')
+
+    if topic in categories:
+        category_keywords = categories[topic]
+        apply_topic_filters(all_topic_elements, category_keywords)
+        time.sleep(2)
+    else:
+        print("No valid topic to filter with")
 
 
 def sort_by_newest():
@@ -195,11 +262,12 @@ def web_scrapping():
 
     search_phrase_handler()
     sort_by_newest()
+    filter_by_category()
     combined_articles_data = []
-    if months <= 0:
+    if months < 0:
         print("No data for the selected period")
     else:
-        for month in range(1, months + 1):
+        for month in range(0, months):
             articles_data_returned = get_articles()
             combined_articles_data.extend(articles_data_returned)
             if months != month:

@@ -719,3 +719,196 @@ INFO:RobotFramework:Creating an instance of the Chrome WebDriver.
 INFO:RPA.Browser.Selenium:Created Chrome browser with arguments: --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox
 INFO:RobotFramework:<p>Attempted combinations:</p><div class="doc"><table><tr><th>Browser</th><th>Download</th><th>Error</th></tr><tr><td>Chrome</td><td>False</td><td>expected str, bytes or os.PathLike object, not NoneType</td></tr><tr><td>Chrome</td><td>True</td><td></td></tr></table></div>
 INFO:RobotFramework:Opening url 'https://www.latimes.com'
+WARNING:urllib3.connectionpool:Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000017AD62D5B70>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/95f74d4c1cbdacb84b21ebda2509152d
+INFO:__main__:Started Rpa Challenge process...
+INFO:WDM:====== WebDriver manager ======
+INFO:RPA.core.webdriver:Downloaded webdriver to: C:\Users\HomePC\AppData\Local\robocorp\webdrivers\.wdm\drivers\chromedriver\win64\123.0.6312.122\chromedriver-win32/chromedriver.exe
+INFO:RobotFramework:Creating an instance of the Chrome WebDriver.
+INFO:RPA.Browser.Selenium:Created Chrome browser with arguments: --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox
+INFO:RobotFramework:<p>Attempted combinations:</p><div class="doc"><table><tr><th>Browser</th><th>Download</th><th>Error</th></tr><tr><td>Chrome</td><td>False</td><td>expected str, bytes or os.PathLike object, not NoneType</td></tr><tr><td>Chrome</td><td>True</td><td></td></tr></table></div>
+INFO:RobotFramework:Opening url 'https://www.latimes.com'
+WARNING:urllib3.connectionpool:Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)': /session/7f24aec769c23997e3e5e6814df3ef61
+INFO:__main__:Started Rpa Challenge process...
+INFO:WDM:====== WebDriver manager ======
+INFO:RPA.core.webdriver:Downloaded webdriver to: C:\Users\HomePC\AppData\Local\robocorp\webdrivers\.wdm\drivers\chromedriver\win64\123.0.6312.122\chromedriver-win32/chromedriver.exe
+INFO:RobotFramework:Creating an instance of the Chrome WebDriver.
+INFO:RPA.Browser.Selenium:Created Chrome browser with arguments: --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox
+INFO:RobotFramework:<p>Attempted combinations:</p><div class="doc"><table><tr><th>Browser</th><th>Download</th><th>Error</th></tr><tr><td>Chrome</td><td>False</td><td>expected str, bytes or os.PathLike object, not NoneType</td></tr><tr><td>Chrome</td><td>True</td><td></td></tr></table></div>
+INFO:RobotFramework:Opening url 'https://www.latimes.com'
+WARNING:urllib3.connectionpool:Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000026BD2075B70>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/cee570124ae0a7f299c7879cbbbf1f5f
+INFO:__main__:Started Rpa Challenge process...
+INFO:WDM:====== WebDriver manager ======
+INFO:RPA.core.webdriver:Downloaded webdriver to: C:\Users\HomePC\AppData\Local\robocorp\webdrivers\.wdm\drivers\chromedriver\win64\123.0.6312.122\chromedriver-win32/chromedriver.exe
+INFO:RobotFramework:Creating an instance of the Chrome WebDriver.
+INFO:RPA.Browser.Selenium:Created Chrome browser with arguments: --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox
+INFO:RobotFramework:<p>Attempted combinations:</p><div class="doc"><table><tr><th>Browser</th><th>Download</th><th>Error</th></tr><tr><td>Chrome</td><td>False</td><td>expected str, bytes or os.PathLike object, not NoneType</td></tr><tr><td>Chrome</td><td>True</td><td></td></tr></table></div>
+INFO:RobotFramework:Opening url 'https://www.latimes.com'
+INFO:__main__:Started Rpa Challenge process...
+INFO:WDM:====== WebDriver manager ======
+INFO:RPA.core.webdriver:Downloaded webdriver to: C:\Users\HomePC\AppData\Local\robocorp\webdrivers\.wdm\drivers\chromedriver\win64\123.0.6312.122\chromedriver-win32/chromedriver.exe
+INFO:RobotFramework:Creating an instance of the Chrome WebDriver.
+INFO:RPA.Browser.Selenium:Created Chrome browser with arguments: --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox
+INFO:RobotFramework:<p>Attempted combinations:</p><div class="doc"><table><tr><th>Browser</th><th>Download</th><th>Error</th></tr><tr><td>Chrome</td><td>False</td><td>expected str, bytes or os.PathLike object, not NoneType</td></tr><tr><td>Chrome</td><td>True</td><td></td></tr></table></div>
+INFO:RobotFramework:Opening url 'https://www.latimes.com'
+INFO:__main__:Started Rpa Challenge process...
+INFO:WDM:====== WebDriver manager ======
+INFO:RPA.core.webdriver:Downloaded webdriver to: C:\Users\HomePC\AppData\Local\robocorp\webdrivers\.wdm\drivers\chromedriver\win64\123.0.6312.122\chromedriver-win32/chromedriver.exe
+INFO:RobotFramework:Creating an instance of the Chrome WebDriver.
+INFO:RPA.Browser.Selenium:Created Chrome browser with arguments: --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox
+INFO:RobotFramework:<p>Attempted combinations:</p><div class="doc"><table><tr><th>Browser</th><th>Download</th><th>Error</th></tr><tr><td>Chrome</td><td>False</td><td>expected str, bytes or os.PathLike object, not NoneType</td></tr><tr><td>Chrome</td><td>True</td><td></td></tr></table></div>
+INFO:RobotFramework:Opening url 'https://www.latimes.com'
+INFO:__main__:Started Rpa Challenge process...
+INFO:WDM:====== WebDriver manager ======
+INFO:RPA.core.webdriver:Downloaded webdriver to: C:\Users\HomePC\AppData\Local\robocorp\webdrivers\.wdm\drivers\chromedriver\win64\123.0.6312.122\chromedriver-win32/chromedriver.exe
+INFO:RobotFramework:Creating an instance of the Chrome WebDriver.
+INFO:RPA.Browser.Selenium:Created Chrome browser with arguments: --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox
+INFO:RobotFramework:<p>Attempted combinations:</p><div class="doc"><table><tr><th>Browser</th><th>Download</th><th>Error</th></tr><tr><td>Chrome</td><td>False</td><td>expected str, bytes or os.PathLike object, not NoneType</td></tr><tr><td>Chrome</td><td>True</td><td></td></tr></table></div>
+INFO:RobotFramework:Opening url 'https://www.latimes.com'
+INFO:__main__:Started Rpa Challenge process...
+INFO:WDM:====== WebDriver manager ======
+INFO:RPA.core.webdriver:Downloaded webdriver to: C:\Users\HomePC\AppData\Local\robocorp\webdrivers\.wdm\drivers\chromedriver\win64\123.0.6312.122\chromedriver-win32/chromedriver.exe
+INFO:RobotFramework:Creating an instance of the Chrome WebDriver.
+INFO:RPA.Browser.Selenium:Created Chrome browser with arguments: --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox
+INFO:RobotFramework:<p>Attempted combinations:</p><div class="doc"><table><tr><th>Browser</th><th>Download</th><th>Error</th></tr><tr><td>Chrome</td><td>False</td><td>expected str, bytes or os.PathLike object, not NoneType</td></tr><tr><td>Chrome</td><td>True</td><td></td></tr></table></div>
+INFO:RobotFramework:Opening url 'https://www.latimes.com'
+INFO:__main__:Started Rpa Challenge process...
+INFO:WDM:====== WebDriver manager ======
+INFO:RPA.core.webdriver:Downloaded webdriver to: C:\Users\HomePC\AppData\Local\robocorp\webdrivers\.wdm\drivers\chromedriver\win64\123.0.6312.122\chromedriver-win32/chromedriver.exe
+INFO:RobotFramework:Creating an instance of the Chrome WebDriver.
+INFO:RPA.Browser.Selenium:Created Chrome browser with arguments: --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox
+INFO:RobotFramework:<p>Attempted combinations:</p><div class="doc"><table><tr><th>Browser</th><th>Download</th><th>Error</th></tr><tr><td>Chrome</td><td>False</td><td>expected str, bytes or os.PathLike object, not NoneType</td></tr><tr><td>Chrome</td><td>True</td><td></td></tr></table></div>
+INFO:RobotFramework:Opening url 'https://www.latimes.com'
+INFO:__main__:Started Rpa Challenge process...
+INFO:WDM:====== WebDriver manager ======
+INFO:RPA.core.webdriver:Downloaded webdriver to: C:\Users\HomePC\AppData\Local\robocorp\webdrivers\.wdm\drivers\chromedriver\win64\123.0.6312.122\chromedriver-win32/chromedriver.exe
+INFO:RobotFramework:Creating an instance of the Chrome WebDriver.
+INFO:RPA.Browser.Selenium:Created Chrome browser with arguments: --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox
+INFO:RobotFramework:<p>Attempted combinations:</p><div class="doc"><table><tr><th>Browser</th><th>Download</th><th>Error</th></tr><tr><td>Chrome</td><td>False</td><td>expected str, bytes or os.PathLike object, not NoneType</td></tr><tr><td>Chrome</td><td>True</td><td></td></tr></table></div>
+INFO:RobotFramework:Opening url 'https://www.latimes.com'
+INFO:__main__:Started Rpa Challenge process...
+INFO:WDM:====== WebDriver manager ======
+INFO:RPA.core.webdriver:Downloaded webdriver to: C:\Users\HomePC\AppData\Local\robocorp\webdrivers\.wdm\drivers\chromedriver\win64\123.0.6312.122\chromedriver-win32/chromedriver.exe
+INFO:RobotFramework:Creating an instance of the Chrome WebDriver.
+INFO:RPA.Browser.Selenium:Created Chrome browser with arguments: --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox
+INFO:RobotFramework:<p>Attempted combinations:</p><div class="doc"><table><tr><th>Browser</th><th>Download</th><th>Error</th></tr><tr><td>Chrome</td><td>False</td><td>expected str, bytes or os.PathLike object, not NoneType</td></tr><tr><td>Chrome</td><td>True</td><td></td></tr></table></div>
+INFO:RobotFramework:Opening url 'https://www.latimes.com'
+INFO:__main__:Started Rpa Challenge process...
+INFO:WDM:====== WebDriver manager ======
+INFO:RPA.core.webdriver:Downloaded webdriver to: C:\Users\HomePC\AppData\Local\robocorp\webdrivers\.wdm\drivers\chromedriver\win64\123.0.6312.122\chromedriver-win32/chromedriver.exe
+INFO:RobotFramework:Creating an instance of the Chrome WebDriver.
+INFO:RPA.Browser.Selenium:Created Chrome browser with arguments: --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox
+INFO:RobotFramework:<p>Attempted combinations:</p><div class="doc"><table><tr><th>Browser</th><th>Download</th><th>Error</th></tr><tr><td>Chrome</td><td>False</td><td>expected str, bytes or os.PathLike object, not NoneType</td></tr><tr><td>Chrome</td><td>True</td><td></td></tr></table></div>
+INFO:RobotFramework:Opening url 'https://www.latimes.com'
+INFO:__main__:Started Rpa Challenge process...
+INFO:WDM:====== WebDriver manager ======
+INFO:RPA.core.webdriver:Downloaded webdriver to: C:\Users\HomePC\AppData\Local\robocorp\webdrivers\.wdm\drivers\chromedriver\win64\123.0.6312.122\chromedriver-win32/chromedriver.exe
+INFO:RobotFramework:Creating an instance of the Chrome WebDriver.
+INFO:RPA.Browser.Selenium:Created Chrome browser with arguments: --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox
+INFO:RobotFramework:<p>Attempted combinations:</p><div class="doc"><table><tr><th>Browser</th><th>Download</th><th>Error</th></tr><tr><td>Chrome</td><td>False</td><td>expected str, bytes or os.PathLike object, not NoneType</td></tr><tr><td>Chrome</td><td>True</td><td></td></tr></table></div>
+INFO:RobotFramework:Opening url 'https://www.latimes.com'
+INFO:__main__:Started Rpa Challenge process...
+INFO:WDM:====== WebDriver manager ======
+INFO:RPA.core.webdriver:Downloaded webdriver to: C:\Users\HomePC\AppData\Local\robocorp\webdrivers\.wdm\drivers\chromedriver\win64\123.0.6312.122\chromedriver-win32/chromedriver.exe
+INFO:RobotFramework:Creating an instance of the Chrome WebDriver.
+INFO:RPA.Browser.Selenium:Created Chrome browser with arguments: --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox
+INFO:RobotFramework:<p>Attempted combinations:</p><div class="doc"><table><tr><th>Browser</th><th>Download</th><th>Error</th></tr><tr><td>Chrome</td><td>False</td><td>expected str, bytes or os.PathLike object, not NoneType</td></tr><tr><td>Chrome</td><td>True</td><td></td></tr></table></div>
+INFO:RobotFramework:Opening url 'https://www.latimes.com'
+INFO:__main__:Started Rpa Challenge process...
+INFO:WDM:====== WebDriver manager ======
+INFO:RPA.core.webdriver:Downloaded webdriver to: C:\Users\HomePC\AppData\Local\robocorp\webdrivers\.wdm\drivers\chromedriver\win64\123.0.6312.122\chromedriver-win32/chromedriver.exe
+INFO:RobotFramework:Creating an instance of the Chrome WebDriver.
+INFO:RPA.Browser.Selenium:Created Chrome browser with arguments: --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox
+INFO:RobotFramework:<p>Attempted combinations:</p><div class="doc"><table><tr><th>Browser</th><th>Download</th><th>Error</th></tr><tr><td>Chrome</td><td>False</td><td>expected str, bytes or os.PathLike object, not NoneType</td></tr><tr><td>Chrome</td><td>True</td><td></td></tr></table></div>
+INFO:RobotFramework:Opening url 'https://www.latimes.com'
+INFO:__main__:Started Rpa Challenge process...
+INFO:WDM:====== WebDriver manager ======
+INFO:RPA.core.webdriver:Downloaded webdriver to: C:\Users\HomePC\AppData\Local\robocorp\webdrivers\.wdm\drivers\chromedriver\win64\123.0.6312.122\chromedriver-win32/chromedriver.exe
+INFO:RobotFramework:Creating an instance of the Chrome WebDriver.
+INFO:RPA.Browser.Selenium:Created Chrome browser with arguments: --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox
+INFO:RobotFramework:<p>Attempted combinations:</p><div class="doc"><table><tr><th>Browser</th><th>Download</th><th>Error</th></tr><tr><td>Chrome</td><td>False</td><td>expected str, bytes or os.PathLike object, not NoneType</td></tr><tr><td>Chrome</td><td>True</td><td></td></tr></table></div>
+INFO:RobotFramework:Opening url 'https://www.latimes.com'
+INFO:__main__:Started Rpa Challenge process...
+INFO:WDM:====== WebDriver manager ======
+INFO:RPA.core.webdriver:Downloaded webdriver to: C:\Users\HomePC\AppData\Local\robocorp\webdrivers\.wdm\drivers\chromedriver\win64\123.0.6312.122\chromedriver-win32/chromedriver.exe
+INFO:RobotFramework:Creating an instance of the Chrome WebDriver.
+INFO:RPA.Browser.Selenium:Created Chrome browser with arguments: --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox
+INFO:RobotFramework:<p>Attempted combinations:</p><div class="doc"><table><tr><th>Browser</th><th>Download</th><th>Error</th></tr><tr><td>Chrome</td><td>False</td><td>expected str, bytes or os.PathLike object, not NoneType</td></tr><tr><td>Chrome</td><td>True</td><td></td></tr></table></div>
+INFO:RobotFramework:Opening url 'https://www.latimes.com'
+INFO:__main__:Started Rpa Challenge process...
+INFO:WDM:====== WebDriver manager ======
+INFO:RPA.core.webdriver:Downloaded webdriver to: C:\Users\HomePC\AppData\Local\robocorp\webdrivers\.wdm\drivers\chromedriver\win64\123.0.6312.122\chromedriver-win32/chromedriver.exe
+INFO:RobotFramework:Creating an instance of the Chrome WebDriver.
+INFO:RPA.Browser.Selenium:Created Chrome browser with arguments: --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox
+INFO:RobotFramework:<p>Attempted combinations:</p><div class="doc"><table><tr><th>Browser</th><th>Download</th><th>Error</th></tr><tr><td>Chrome</td><td>False</td><td>expected str, bytes or os.PathLike object, not NoneType</td></tr><tr><td>Chrome</td><td>True</td><td></td></tr></table></div>
+INFO:RobotFramework:Opening url 'https://www.latimes.com'
+INFO:__main__:Started Rpa Challenge process...
+INFO:WDM:====== WebDriver manager ======
+INFO:RPA.core.webdriver:Downloaded webdriver to: C:\Users\HomePC\AppData\Local\robocorp\webdrivers\.wdm\drivers\chromedriver\win64\123.0.6312.122\chromedriver-win32/chromedriver.exe
+INFO:RobotFramework:Creating an instance of the Chrome WebDriver.
+INFO:RPA.Browser.Selenium:Created Chrome browser with arguments: --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox
+INFO:RobotFramework:<p>Attempted combinations:</p><div class="doc"><table><tr><th>Browser</th><th>Download</th><th>Error</th></tr><tr><td>Chrome</td><td>False</td><td>expected str, bytes or os.PathLike object, not NoneType</td></tr><tr><td>Chrome</td><td>True</td><td></td></tr></table></div>
+INFO:RobotFramework:Opening url 'https://www.latimes.com'
+WARNING:urllib3.connectionpool:Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)': /session/9b794f3f23834391bf758e6c6e6edbcf
+INFO:__main__:Started Rpa Challenge process...
+INFO:WDM:====== WebDriver manager ======
+INFO:RPA.core.webdriver:Downloaded webdriver to: C:\Users\HomePC\AppData\Local\robocorp\webdrivers\.wdm\drivers\chromedriver\win64\123.0.6312.122\chromedriver-win32/chromedriver.exe
+INFO:RobotFramework:Creating an instance of the Chrome WebDriver.
+INFO:RPA.Browser.Selenium:Created Chrome browser with arguments: --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox
+INFO:RobotFramework:<p>Attempted combinations:</p><div class="doc"><table><tr><th>Browser</th><th>Download</th><th>Error</th></tr><tr><td>Chrome</td><td>False</td><td>expected str, bytes or os.PathLike object, not NoneType</td></tr><tr><td>Chrome</td><td>True</td><td></td></tr></table></div>
+INFO:RobotFramework:Opening url 'https://www.latimes.com'
+WARNING:urllib3.connectionpool:Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)': /session/02153289e8bdb91779644af457cbf154
+INFO:__main__:Started Rpa Challenge process...
+INFO:WDM:====== WebDriver manager ======
+INFO:RPA.core.webdriver:Downloaded webdriver to: C:\Users\HomePC\AppData\Local\robocorp\webdrivers\.wdm\drivers\chromedriver\win64\123.0.6312.122\chromedriver-win32/chromedriver.exe
+INFO:RobotFramework:Creating an instance of the Chrome WebDriver.
+INFO:RPA.Browser.Selenium:Created Chrome browser with arguments: --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox
+INFO:RobotFramework:<p>Attempted combinations:</p><div class="doc"><table><tr><th>Browser</th><th>Download</th><th>Error</th></tr><tr><td>Chrome</td><td>False</td><td>expected str, bytes or os.PathLike object, not NoneType</td></tr><tr><td>Chrome</td><td>True</td><td></td></tr></table></div>
+INFO:RobotFramework:Opening url 'https://www.latimes.com'
+WARNING:urllib3.connectionpool:Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)': /session/833e59638401949bb1bc05b5009c396e
+INFO:__main__:Started Rpa Challenge process...
+INFO:WDM:====== WebDriver manager ======
+INFO:RPA.core.webdriver:Downloaded webdriver to: C:\Users\HomePC\AppData\Local\robocorp\webdrivers\.wdm\drivers\chromedriver\win64\123.0.6312.122\chromedriver-win32/chromedriver.exe
+INFO:RobotFramework:Creating an instance of the Chrome WebDriver.
+INFO:RPA.Browser.Selenium:Created Chrome browser with arguments: --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox
+INFO:RobotFramework:<p>Attempted combinations:</p><div class="doc"><table><tr><th>Browser</th><th>Download</th><th>Error</th></tr><tr><td>Chrome</td><td>False</td><td>expected str, bytes or os.PathLike object, not NoneType</td></tr><tr><td>Chrome</td><td>True</td><td></td></tr></table></div>
+INFO:RobotFramework:Opening url 'https://www.latimes.com'
+WARNING:urllib3.connectionpool:Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)': /session/c50a76b1edab0e86d2f0c935029283e9
+INFO:__main__:Started Rpa Challenge process...
+INFO:WDM:====== WebDriver manager ======
+INFO:RPA.core.webdriver:Downloaded webdriver to: C:\Users\HomePC\AppData\Local\robocorp\webdrivers\.wdm\drivers\chromedriver\win64\123.0.6312.122\chromedriver-win32/chromedriver.exe
+INFO:RobotFramework:Creating an instance of the Chrome WebDriver.
+INFO:RPA.Browser.Selenium:Created Chrome browser with arguments: --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox
+INFO:RobotFramework:<p>Attempted combinations:</p><div class="doc"><table><tr><th>Browser</th><th>Download</th><th>Error</th></tr><tr><td>Chrome</td><td>False</td><td>expected str, bytes or os.PathLike object, not NoneType</td></tr><tr><td>Chrome</td><td>True</td><td></td></tr></table></div>
+INFO:RobotFramework:Opening url 'https://www.latimes.com'
+INFO:__main__:Started Rpa Challenge process...
+INFO:WDM:====== WebDriver manager ======
+INFO:RPA.core.webdriver:Downloaded webdriver to: C:\Users\HomePC\AppData\Local\robocorp\webdrivers\.wdm\drivers\chromedriver\win64\123.0.6312.122\chromedriver-win32/chromedriver.exe
+INFO:RobotFramework:Creating an instance of the Chrome WebDriver.
+INFO:RPA.Browser.Selenium:Created Chrome browser with arguments: --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox
+INFO:RobotFramework:<p>Attempted combinations:</p><div class="doc"><table><tr><th>Browser</th><th>Download</th><th>Error</th></tr><tr><td>Chrome</td><td>False</td><td>expected str, bytes or os.PathLike object, not NoneType</td></tr><tr><td>Chrome</td><td>True</td><td></td></tr></table></div>
+INFO:RobotFramework:Opening url 'https://www.latimes.com'
+WARNING:urllib3.connectionpool:Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)': /session/58bdc15de8d3443c0cf769ed39c3234c
+WARNING:urllib3.connectionpool:Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001E31DAE7760>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/58bdc15de8d3443c0cf769ed39c3234c
+INFO:__main__:Started Rpa Challenge process...
+INFO:WDM:====== WebDriver manager ======
+INFO:RPA.core.webdriver:Downloaded webdriver to: C:\Users\HomePC\AppData\Local\robocorp\webdrivers\.wdm\drivers\chromedriver\win64\123.0.6312.122\chromedriver-win32/chromedriver.exe
+INFO:RobotFramework:Creating an instance of the Chrome WebDriver.
+INFO:RPA.Browser.Selenium:Created Chrome browser with arguments: --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox
+INFO:RobotFramework:<p>Attempted combinations:</p><div class="doc"><table><tr><th>Browser</th><th>Download</th><th>Error</th></tr><tr><td>Chrome</td><td>False</td><td>expected str, bytes or os.PathLike object, not NoneType</td></tr><tr><td>Chrome</td><td>True</td><td></td></tr></table></div>
+INFO:RobotFramework:Opening url 'https://www.latimes.com'
+WARNING:urllib3.connectionpool:Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)': /session/84c3899e61b655dcebe4991799a77e4f
+WARNING:urllib3.connectionpool:Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002EA72A97760>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/84c3899e61b655dcebe4991799a77e4f
+INFO:__main__:Started Rpa Challenge process...
+INFO:WDM:====== WebDriver manager ======
+INFO:RPA.core.webdriver:Downloaded webdriver to: C:\Users\HomePC\AppData\Local\robocorp\webdrivers\.wdm\drivers\chromedriver\win64\123.0.6312.122\chromedriver-win32/chromedriver.exe
+INFO:RobotFramework:Creating an instance of the Chrome WebDriver.
+INFO:RPA.Browser.Selenium:Created Chrome browser with arguments: --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox
+INFO:RobotFramework:<p>Attempted combinations:</p><div class="doc"><table><tr><th>Browser</th><th>Download</th><th>Error</th></tr><tr><td>Chrome</td><td>False</td><td>expected str, bytes or os.PathLike object, not NoneType</td></tr><tr><td>Chrome</td><td>True</td><td></td></tr></table></div>
+INFO:RobotFramework:Opening url 'https://www.latimes.com'
+INFO:__main__:Started Rpa Challenge process...
+INFO:WDM:====== WebDriver manager ======
+INFO:RPA.core.webdriver:Downloaded webdriver to: C:\Users\HomePC\AppData\Local\robocorp\webdrivers\.wdm\drivers\chromedriver\win64\123.0.6312.122\chromedriver-win32/chromedriver.exe
+INFO:RobotFramework:Creating an instance of the Chrome WebDriver.
+INFO:RPA.Browser.Selenium:Created Chrome browser with arguments: --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox
+INFO:RobotFramework:<p>Attempted combinations:</p><div class="doc"><table><tr><th>Browser</th><th>Download</th><th>Error</th></tr><tr><td>Chrome</td><td>False</td><td>expected str, bytes or os.PathLike object, not NoneType</td></tr><tr><td>Chrome</td><td>True</td><td></td></tr></table></div>
+INFO:RobotFramework:Opening url 'https://www.latimes.com'
