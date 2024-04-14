@@ -4,6 +4,7 @@ import re
 
 
 def filter_articles_by_month(months):
+    months = 1 if months <= 0 else months
     try:
         current_month = datetime.now().month
         current_year = datetime.now().year
@@ -78,33 +79,3 @@ def get_current_date_if_ago(date_str):
     except Exception as e:
         print(f"Error in get_current_date_if_ago: {e}")
         return date_str
-
-
-# Test the function
-dates = [
-    "April 1, 2024",
-    "March 27, 2024",
-    "March 26, 2024",
-    "March 15, 2024",
-    "March 14, 2024",
-    "March 11, 2024",
-    "Feb. 27, 2024",
-    "Feb. 12, 2024",
-    "Feb. 27, 2023",
-    "Feb. 9, 2024",
-    "Feb. 9, 2024",
-    "Nov. 27, 2023",
-    "Not a valid date",
-    "2 days ago",
-    "3 weeks ago",
-    "6 months ago"
-]
-
-months_to_check = 15
-
-valid_months = filter_articles_by_month(months_to_check)
-print(valid_months)
-
-for date in dates:
-    formatted_date = get_current_date_if_ago(date)
-    print(f"{date} -> {formatted_date}: {is_valid_date_format(formatted_date, valid_months)}")

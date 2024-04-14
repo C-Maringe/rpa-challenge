@@ -10,6 +10,7 @@ import requests
 from RPA.Browser.Selenium import Selenium
 from bs4 import BeautifulSoup
 
+from src.utils.date_validator import is_valid_date_format, get_current_date_if_ago, filter_articles_by_month
 from src.utils.logger import create_logger
 
 logger = logging.getLogger(__name__)
@@ -37,7 +38,9 @@ categories = {
     'environment': ['environment', 'climate', 'sustainability', 'green']
 }
 topic = "sports"
-months = 1
+months = 5
+valid_months = filter_articles_by_month(months)
+keep_going_to_next_page = True
 
 
 def extract_money(text):
@@ -127,7 +130,7 @@ def apply_topic_filters(all_topic_elements, category_keywords):
 
 
 def filter_by_category():
-    """Filter topics based on categories."""
+    """Filter news based on categories."""
     lib.wait_until_element_is_visible(f"css:ul[{topics_list_element}]")
     topic_container_element = lib.find_element(f"css:ul[{topics_list_element}]")
     all_topic_elements = topic_container_element.find_elements(by='tag name', value='li')
@@ -169,7 +172,9 @@ def next_page():
 
 
 def get_articles():
+    global keep_going_to_next_page
     # Find the parent element containing all articles
+    time.sleep(2)
     lib.wait_until_element_is_visible(f"css:ul.{articles_list_element}")
     articles_parent = search_element(f"css:ul.{articles_list_element}")
 
@@ -187,7 +192,14 @@ def get_articles():
         date = get_element_text_safe(article_element, "promo-timestamp")
         description = get_element_text_safe(article_element, "promo-description")
 
-        print(title, date, description)
+        formatted_date = get_current_date_if_ago(date)
+
+        if not is_valid_date_format(formatted_date, valid_months):
+            print(f"Skipping article '{title}' with date '{formatted_date}' as it's not within the valid months.")
+            keep_going_to_next_page = False
+            return articles_data
+
+        print(title, formatted_date, description)
         picture_filename = ""
 
         img_element = article_element.find('img', class_='image')
@@ -232,7 +244,7 @@ def get_articles():
 
         article_data = {
             "title": title,
-            "date": date,
+            "date": formatted_date,
             "description": description,
             "picture_filename": picture_filename,
             "title_description_search_count": title_count + description_count,
@@ -267,10 +279,18 @@ def web_scrapping():
     if months < 0:
         print("No data for the selected period")
     else:
-        for month in range(0, months):
+        number_of_months = months + 1 if months == 0 else months
+        # print(number_of_months)
+        # for month in range(0, number_of_months):
+        #     articles_data_returned = get_articles()
+        #     combined_articles_data.extend(articles_data_returned)
+        #     if months != month:
+        #         next_page()
+        while keep_going_to_next_page:
             articles_data_returned = get_articles()
             combined_articles_data.extend(articles_data_returned)
-            if months != month:
+            print(keep_going_to_next_page)
+            if keep_going_to_next_page:
                 next_page()
 
     save_articles(combined_articles_data)
