@@ -1,5 +1,7 @@
 .venv
 
+sele.py
+
 # Ignore .xlsx files in src/files/excel
 src/files/excel/*.xlsx
 
