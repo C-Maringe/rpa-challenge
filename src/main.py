@@ -38,7 +38,7 @@ categories = {
     'environment': ['environment', 'climate', 'sustainability', 'green']
 }
 topic = "sports"
-months = 5
+months = 6
 valid_months = filter_articles_by_month(months)
 keep_going_to_next_page = True
 
@@ -121,12 +121,18 @@ def apply_topic_filters(all_topic_elements, category_keywords):
                                             }}
                                         }}
                                     """)
+                                time.sleep(1)
                         except Exception as e:
                             print("No input element found within topic_element.")
                         # break
         except Exception as e:
-            # print(e)
-            print("Something went wrong here, but relax its not a bigger deal")
+            if "stale" in str(e):
+                print("Message: stale element reference: stale element not found in the current frame")
+                break  # Exit the loop
+            else:
+                # TODO: Add proper error handling
+                print("Something went wrong here, but relax, it's not a bigger deal. It's just for demonstration purposes. Will do proper error handling here!")
+                break  # Exit the loop
 
 
 def filter_by_category():
@@ -208,7 +214,7 @@ def get_articles():
             print(f"Image source: {image_src}")
             response = requests.get(image_src)
             if response.status_code == 200:
-                directory_path = "./files/images"
+                directory_path = "output/files/images"
 
                 # Create the directory if it doesn't exist
                 if not os.path.exists(directory_path):
@@ -261,48 +267,53 @@ def save_articles(combined_articles_data):
     df = pd.DataFrame(combined_articles_data)
     current_datetime = datetime.now().strftime("%Y%m%d%H%M%S")
 
-    filename = f"./files/excel/data_{current_datetime}.xlsx"
+    directory_path = "output/files/excel"
+
+    if not os.path.exists(directory_path):
+        os.makedirs(directory_path)
+
+    filename = f"{directory_path}/data_{current_datetime}.xlsx"
 
     # Save DataFrame to Excel with the constructed filename
     df.to_excel(filename, index=False)
 
-    print("Data saved to search_results.xlsx")
+    print(f"Data saved to {filename}")
 
 
 def web_scrapping():
-    open_browser()
+    try:
+        open_browser()
 
-    search_phrase_handler()
-    sort_by_newest()
-    filter_by_category()
-    combined_articles_data = []
-    if months < 0:
-        print("No data for the selected period")
-    else:
-        number_of_months = months + 1 if months == 0 else months
-        # print(number_of_months)
-        # for month in range(0, number_of_months):
-        #     articles_data_returned = get_articles()
-        #     combined_articles_data.extend(articles_data_returned)
-        #     if months != month:
-        #         next_page()
-        while keep_going_to_next_page:
-            articles_data_returned = get_articles()
-            combined_articles_data.extend(articles_data_returned)
-            print(keep_going_to_next_page)
-            if keep_going_to_next_page:
-                next_page()
+        search_phrase_handler()
+        sort_by_newest()
+        filter_by_category()
+        combined_articles_data = []
+        if months < 0:
+            print("No data for the selected period")
+        else:
+            while keep_going_to_next_page:
+                articles_data_returned = get_articles()
+                combined_articles_data.extend(articles_data_returned)
+                print(keep_going_to_next_page)
+                if keep_going_to_next_page:
+                    next_page()
 
-    save_articles(combined_articles_data)
+        save_articles(combined_articles_data)
 
-    time.sleep(30000)
-    lib.close_browser()
+        time.sleep(5)
+        lib.close_browser()
+    except Exception as main_error:
+        print(f"Error in web_scrapping: {main_error}")
 
 
 def main():
-    create_logger(__name__)
-    web_scrapping()
-    logger.info('Finished Rpa Challenge process...')
+    try:
+        create_logger(__name__)
+        web_scrapping()
+        logger.info('Finished Rpa Challenge process...')
+
+    except Exception as main_error:
+        print(f"Main function error: {main_error}")
 
 
 if __name__ == '__main__':
