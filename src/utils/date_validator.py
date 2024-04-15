@@ -2,6 +2,10 @@ import calendar
 from datetime import datetime
 import re
 
+from src.utils.logger import create_logger
+
+logger = create_logger(__name__)
+
 
 def filter_articles_by_month(months):
     months = 1 if months <= 0 else months
@@ -12,8 +16,8 @@ def filter_articles_by_month(months):
         # Convert month number to month name and slice to get abbreviation
         month_name = calendar.month_name[current_month][:3].lower()
 
-        print("Current month:", month_name)
-        print("Current year:", current_year)
+        logger.info("Current month:", month_name)
+        logger.info("Current year:", current_year)
 
         # Create a list to store valid months
         valid_months = []
@@ -30,7 +34,7 @@ def filter_articles_by_month(months):
 
         return valid_months
     except Exception as e:
-        print(f"Error in filter_articles_by_month: {e}")
+        logger.error(f"Error in filter_articles_by_month: {e}")
         return []
 
 
@@ -67,7 +71,7 @@ def is_valid_date_format(date_str, valid_months):
 
         return False
     except Exception as e:
-        print(f"Error in is_valid_date_format: {e}")
+        logger.error(f"Error in is_valid_date_format: {e}")
         return False
 
 
@@ -77,5 +81,5 @@ def get_current_date_if_ago(date_str):
             return datetime.now().strftime("%B %d, %Y")
         return date_str
     except Exception as e:
-        print(f"Error in get_current_date_if_ago: {e}")
+        logger.error(f"Error in get_current_date_if_ago: {e}")
         return date_str
