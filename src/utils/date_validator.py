@@ -16,8 +16,8 @@ def filter_articles_by_month(months):
         # Convert month number to month name and slice to get abbreviation
         month_name = calendar.month_name[current_month][:3].lower()
 
-        logger.info("Current month:", month_name)
-        logger.info("Current year:", current_year)
+        logger.info(f"Current month: {month_name}")
+        logger.info(f"Current year: {current_year}")
 
         # Create a list to store valid months
         valid_months = []

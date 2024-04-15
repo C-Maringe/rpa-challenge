@@ -5,4 +5,4 @@ from src.main import main
 
 @task
 def rpa_challenge():
-    main()
+    main() 
