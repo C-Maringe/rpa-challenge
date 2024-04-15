@@ -125,7 +125,7 @@ To execute the bot, you can run the `rpa_challenge` task defined in `tasks.py` i
 
 ### Date_validator.py
 
-- **Purpose**: Provides date validation and filtering functionalities.
+- **Purpose**: Provides date validation and filtering functionalities, as well as algorithms for handling the number of months to be retrieved.
 
 ## Dependencies
 
