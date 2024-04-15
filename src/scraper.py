@@ -29,8 +29,9 @@ def get_element_text_safe(article_element, selector):
 
 
 class Scraper:
-    def __init__(self, url, search_phrase, topic, months, categories):
+    def __init__(self, url, search_phrase, topic, months, categories, current_dir):
         self.url = url
+        self.current_dir = current_dir
         self.search_phrase = search_phrase
         self.topic = topic
         self.months = months
@@ -160,7 +161,7 @@ class Scraper:
                 logger.info(f"Image source: {image_src}")
                 response = requests.get(image_src)
                 if response.status_code == 200:
-                    directory_path = "output/files/images"
+                    directory_path = os.path.join(self.current_dir, "output/files/images")
                     if not os.path.exists(directory_path):
                         os.makedirs(directory_path)
 
@@ -201,7 +202,7 @@ class Scraper:
     def save_articles(self):
         df = pd.DataFrame(self.articles)
         current_datetime = datetime.now().strftime("%Y%m%d%H%M%S")
-        directory_path = "output/files/excel"
+        directory_path = os.path.join(self.current_dir, "output/files/excel")
 
         if not os.path.exists(directory_path):
             os.makedirs(directory_path)

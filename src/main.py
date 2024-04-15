@@ -1,14 +1,31 @@
+import os
+
+from robocorp import vault
+
 from src.scraper import Scraper
 from src.utils.logger import create_logger
 
 
-def main():
+def main(current_dir):
+    secrets = {}
     logger = create_logger(__name__)
     logger.info("Starting the RPA Challenge...")
+    logger.info(current_dir)
+    logger.info(secrets)
+    try:
+        secrets = vault.get_secret("RpaChallenge")
+        logger.info(secrets)
+        logger.info(secrets["search_phrase"])
+        logger.info(secrets["months"])
+        logger.info(secrets["topic"])
+    except Exception as e:
+        logger.info(str(e))
+
     url = "https://www.latimes.com"
-    search_phrase = "trump"
-    topic = "sports"
-    months = 6
+    search_phrase = secrets["search_phrase"] if secrets else "Weather"
+    topic = secrets["topic"] if secrets else "sports"
+    months = int(secrets["months"]) if secrets else 1
+
     categories = {
         'sports': ['sports', 'football', 'basketball', 'baseball', 'tennis'],
         'politics': ['politics', 'election', 'president', 'government', 'congress'],
@@ -20,10 +37,11 @@ def main():
         'environment': ['environment', 'climate', 'sustainability', 'green']
     }
 
-    scraper = Scraper(url, search_phrase, topic, months, categories)
+    scraper = Scraper(url, search_phrase, topic, months, categories, current_dir)
     scraper.run()
     logger.info("RPA Challenge ended...")
 
 
 if __name__ == "__main__":
-    main()
+    current_dir = os.path.dirname(__file__)
+    main(current_dir)
