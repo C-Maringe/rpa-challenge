@@ -1,12 +1,21 @@
-# Template: Python - Minimal
+# Robocorp RPA Challenge Documentation
 
-This template leverages the new [Python framework](https://github.com/robocorp/robocorp), the [libraries](https://github.com/robocorp/robocorp/blob/master/docs/README.md#python-libraries) from to same project as well.
+## Overview
 
-The template provides you with the basic structure of a Python project: logging out of the box and controlling your tasks without fiddling with the base Python stuff. The environment contains the most used libraries, so you do not have to start thinking about those right away. 
+This documentation provides an overview and details of a Robocorp RPA bot built using Python. The bot aims to scrape articles from the [Los Angeles Times](https://www.latimes.com) website based on specific topics and keywords, and then saves the data in an Excel file.
 
-👉 Other templates are available as well via our tooling and on our [Portal](https://robocorp.com/portal/tag/template)
+## Files Structure
 
-## Running
+- `task.robot`: Entry point for Robocorp tasks.
+- `src/main.py`: Main script to initiate the scraping process.
+- `src/scraper.py`: Contains the Scraper class responsible for web scraping.
+- `src/article.py`: Defines the Article class to store article details.
+- `src/browser_manager.py`: Manages browser operations using Selenium.
+- `src/utils/logger.py`: Handles logging functionalities.
+- `src/utils/date_validator.py`: Provides date validation and filtering functionalities.
+- `output/`: Folder containing logs, images, and Excel files.
+
+## Running the Robot
 
 #### VS Code
 1. Get [Robocorp Code](https://robocorp.com/docs/developer-tools/visual-studio-code/extension-features) -extension for VS Code.
@@ -17,44 +26,116 @@ The template provides you with the basic structure of a Python project: logging 
 1. [Get RCC](https://github.com/robocorp/rcc?tab=readme-ov-file#getting-started)
 1. Use the command: `rcc run`
 
+## How to Run manually
+
+To execute the bot, you can run the `rpa_challenge` task defined in `tasks.py` in visual studio.
+
 ## Results
+
+🚀 After running the bot, check out the following directories in the `output` folder:
+
+- **Excel Files**: `output/files/excel` - Contains the Excel files with scraped article data.
+- **Images**: `output/files/images` - Contains the images downloaded from the articles.
 
 🚀 After running the bot, check out the `log.html` under the `output` -folder.
 
+## Main.py
+
+### Function: main()
+
+- **Purpose**: Initiates the RPA Challenge by setting up the logging, defining scraping parameters, and running the Scraper.
+
+#### Parameters
+
+- `url`: Target URL (https://www.latimes.com)
+- `search_phrase`: Keyword to search for (e.g., "trump")
+- `topic`: Topic/category for filtering articles (e.g., "sports")
+- `months`: Number of past months to consider (e.g., 6)
+- `categories`: Dictionary of categories and their associated keywords
+
+#### Steps
+
+1. **Initialize logger**: Sets up logging for the script.
+2. **Define scraping parameters**: Defines the URL, search phrase, topic, months, and categories.
+3. **Instantiate Scraper**: Creates a Scraper object with the defined parameters.
+4. **Run Scraper**: Calls the `run()` method of the Scraper object to start the scraping process.
+
+## Scraper.py
+
+### Class: Scraper
+
+- **Purpose**: Handles web scraping functionalities.
+
+#### Attributes
+
+- `url`: Target URL
+- `search_phrase`: Keyword to search for
+- `topic`: Topic/category for filtering articles
+- `months`: Number of past months to consider
+- `valid_months`: List of valid months for filtering
+- `browser_manager`: BrowserManager object
+- `keep_going_to_next_page`: Flag to control pagination
+- `articles`: List to store scraped articles
+- `categories`: Dictionary of categories and their associated keywords
+
+#### Methods
+
+- `search_phrase_handler()`: Handles the search functionality on the website.
+- `apply_topic_filters(all_topic_elements, category_keywords)`: Applies topic filters based on category keywords.
+- `filter_by_category()`: Filters articles based on the selected topic.
+- `sort_by_newest()`: Sorts articles by newest.
+- `next_page()`: Navigates to the next page of search results.
+- `get_articles()`: Scrapes article details from the current page.
+- `save_articles()`: Saves scraped articles to an Excel file.
+- `run()`: Main method to run the scraping process.
+
+## Article.py
+
+### Class: Article
+
+- **Purpose**: Represents an article object with its details.
+
+#### Attributes
+
+- `title`: Article title
+- `date`: Article publication date
+- `description`: Article description
+- `picture_filename`: Filename of the article image
+- `title_description_search_count`: Count of search keyword occurrences in title and description
+- `contains_money`: Flag indicating if the article mentions money
+
+## Browser_manager.py
+
+### Class: BrowserManager
+
+- **Purpose**: Manages browser operations using Selenium.
+
+#### Methods
+
+- `open_browser(url)`: Opens a browser with the specified URL.
+- `close_browser()`: Closes the browser.
+- `find_element(selector)`: Finds and returns a web element using the provided selector.
+- `wait_until_element_is_visible(selector)`: Waits until the specified element is visible.
+
+## Utils
+
+### Logger.py
+
+- **Purpose**: Provides logging functionalities.
+
+### Date_validator.py
+
+- **Purpose**: Provides date validation and filtering functionalities.
+
 ## Dependencies
 
-We strongly recommend getting familiar with adding your dependencies in [conda.yaml](conda.yaml) to control your Python dependencies and the whole Python environment for your automation.
+- `robocorp.tasks`: For task definitions.
+- `pandas`: For data manipulation and Excel file handling.
+- `requests`: For making HTTP requests.
+- `beautifulsoup4`: For parsing HTML content.
+- `selenium`: For browser automation.
+- `logging`: For logging functionalities.
 
-<details>
-  <summary>🙋‍♂️ "Why not just pip install...?"</summary>
+## Conclusion
 
-Think of [conda.yaml](conda.yaml) as an equivalent of the requirements.txt, but much better. 👩‍💻 With `conda.yaml`, you are not just controlling your PyPI dependencies; you control the complete Python environment, which makes things repeatable and easy.
-
-👉 You will probably need to run your code on another machine quite soon, so by using `conda.yaml`:
-- You can avoid `Works on my machine` -cases
-- You do not need to manage Python installations on all the machines
-- You can control exactly which version of Python your automation will run on 
-  - You'll also control the pip version to avoid dep. resolution changes
-- No need for venv, pyenv, ... tooling and knowledge sharing inside your team.
-- Define dependencies in conda.yaml, let our tooling do the heavy lifting.
-- You get all the content of [conda-forge](https://prefix.dev/channels/conda-forge) without any extra tooling
-
-> Dive deeper with [these](https://github.com/robocorp/rcc/blob/master/docs/recipes.md#what-is-in-condayaml) resources.
-
-</details>
-<br/>
-
-> The full power of [rpaframework](https://robocorp.com/docs/python/rpa-framework) -libraries is also available on Python as a backup while we implement the new Python libraries.
-
-## What now?
-
-🚀 Now, go get'em
-
-Start writing Python and remember that the AI/LLM's out there are getting really good and creating Python code specifically.
-
-👉 Try out [Robocorp ReMark 💬](https://chat.robocorp.com)
-
-For more information, do not forget to check out the following:
-- [Robocorp Documentation -site](https://robocorp.com/docs)
-- [Portal for more examples](https://robocorp.com/portal)
-- Follow our main [robocorp -repository](https://github.com/robocorp/robocorp) as it is the main location where we developed the libraries and the framework.
+This bot demonstrates the use of Robocorp, Python, and Selenium for web scraping tasks. It scrapes articles from the Los Angeles Times website based on specific topics and keywords, filters and sorts them, and saves the data in an Excel file.

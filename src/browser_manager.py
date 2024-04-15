@@ -5,7 +5,6 @@ class BrowserManager:
     def __init__(self):
         self.lib = Selenium()
 
-
     def open_browser(self, url):
         self.lib.open_available_browser(url, headless=False)
 
