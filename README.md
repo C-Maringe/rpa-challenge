@@ -1,4 +1,4 @@
-# Robocorp RPA Challenge Documentation
+# RPA Challenge Documentation
 
 ## Overview
 
@@ -6,7 +6,7 @@ This documentation provides an overview and details of a Robocorp RPA bot built 
 
 ## Files Structure
 
-- `task.robot`: Entry point for Robocorp tasks.
+- `tasks.py`: Entry point for Robocorp tasks.
 - `src/main.py`: Main script to initiate the scraping process.
 - `src/scraper.py`: Contains the Scraper class responsible for web scraping.
 - `src/article.py`: Defines the Article class to store article details.
