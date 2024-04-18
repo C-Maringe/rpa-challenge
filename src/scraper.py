@@ -161,7 +161,7 @@ class Scraper:
                 logger.info(f"Image source: {image_src}")
                 response = requests.get(image_src)
                 if response.status_code == 200:
-                    directory_path = os.path.join(self.current_dir, "output/files/images")
+                    directory_path = os.path.join(self.current_dir, "output")
                     if not os.path.exists(directory_path):
                         os.makedirs(directory_path)
 
@@ -202,7 +202,7 @@ class Scraper:
     def save_articles(self):
         df = pd.DataFrame(self.articles)
         current_datetime = datetime.now().strftime("%Y%m%d%H%M%S")
-        directory_path = os.path.join(self.current_dir, "output/files/excel")
+        directory_path = os.path.join(self.current_dir, "output")
 
         if not os.path.exists(directory_path):
             os.makedirs(directory_path)
