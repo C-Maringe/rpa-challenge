@@ -29,7 +29,14 @@ def get_element_text_safe(article_element, selector):
 
 
 class Scraper:
-    def __init__(self, url, search_phrase, topic, months, categories, current_dir):
+    def __init__(
+            self,
+            url,
+            search_phrase,
+            topic,
+            months,
+            categories,
+            current_dir):
         self.url = url
         self.current_dir = current_dir
         self.search_phrase = search_phrase
@@ -43,16 +50,20 @@ class Scraper:
         self.categories = categories
 
     def search_phrase_handler(self):
-        self.browser_manager.wait_until_element_is_visible("css:button[data-element='search-button']")
-        search_button = self.browser_manager.find_element("css:button[data-element='search-button']")
+        self.browser_manager.wait_until_element_is_visible(
+            "css:button[data-element='search-button']")
+        search_button = self.browser_manager.find_element(
+            "css:button[data-element='search-button']")
         search_button.click()
 
-        search_input = self.browser_manager.find_element("css:input[data-element='search-form-input']")
+        search_input = self.browser_manager.find_element(
+            "css:input[data-element='search-form-input']")
         time.sleep(2)
         search_input.send_keys(self.search_phrase)
 
         time.sleep(2)
-        search_submit_button = self.browser_manager.find_element("css:button[data-element='search-submit-button']")
+        search_submit_button = self.browser_manager.find_element(
+            "css:button[data-element='search-submit-button']")
         search_submit_button.click()
 
         time.sleep(2)
@@ -75,12 +86,16 @@ class Scraper:
                     for keyword in category_keywords:
                         if keyword in topic_name:
                             try:
-                                checkbox_input = topic_element.find_element(by='tag name', value='input')
-                                checkbox_value = checkbox_input.get_attribute("value")
+                                checkbox_input = topic_element.find_element(
+                                    by='tag name', value='input')
+                                checkbox_value = checkbox_input.get_attribute(
+                                    "value")
                                 if checkbox_input.is_selected():
-                                    logger.info("Checkbox is currently checked.")
+                                    logger.info(
+                                        "Checkbox is currently checked.")
                                 else:
-                                    logger.info("Checkbox is not currently checked.")
+                                    logger.info(
+                                        "Checkbox is not currently checked.")
                                     self.browser_manager.lib.driver.execute_script(f"""
                                             var checkbox = document.querySelector("input[value='{checkbox_value}']");
                                             if (checkbox) {{
@@ -91,20 +106,26 @@ class Scraper:
                                         """)
                                 time.sleep(1)
                             except Exception as e:
-                                logger.error("No input element found within topic_element.")
+                                logger.error(
+                                    "No input element found within topic_element.")
             except Exception as e:
                 if "stale" in str(e):
-                    logger.error("Message: stale element reference: stale element not found in the current frame")
+                    logger.error(
+                        "Message: stale element reference: stale element not found in the current frame")
                     break  # Exit the loop
                 else:
-                    logger.error("Something went wrong here, but relax, it's not a bigger deal. It's just for "
-                                 "demonstration purposes.")
+                    logger.error(
+                        "Something went wrong here, but relax, it's not a bigger deal. It's just for "
+                        "demonstration purposes.")
                     break  # Exit the loop
 
     def filter_by_category(self):
-        self.browser_manager.wait_until_element_is_visible("css:ul[data-name='Topics']")
-        topic_container_element = self.browser_manager.find_element("css:ul[data-name='Topics']")
-        all_topic_elements = topic_container_element.find_elements(by='tag name', value='li')
+        self.browser_manager.wait_until_element_is_visible(
+            "css:ul[data-name='Topics']")
+        topic_container_element = self.browser_manager.find_element(
+            "css:ul[data-name='Topics']")
+        all_topic_elements = topic_container_element.find_elements(
+            by='tag name', value='li')
 
         if self.topic in self.categories:
             category_keywords = self.categories[self.topic]
@@ -114,27 +135,35 @@ class Scraper:
             logger.info("No valid topic to filter with")
 
     def sort_by_newest(self):
-        self.browser_manager.wait_until_element_is_visible("css:select.select-input")
-        select_element = self.browser_manager.find_element("css:select.select-input")
+        self.browser_manager.wait_until_element_is_visible(
+            "css:select.select-input")
+        select_element = self.browser_manager.find_element(
+            "css:select.select-input")
 
         select_element.click()
         time.sleep(2)
-        self.browser_manager.lib.driver.execute_script("arguments[0].value = '1';", select_element)
-        self.browser_manager.lib.driver.execute_script("arguments[0].dispatchEvent(new Event('change', { bubbles: "
-                                                       "true }));", select_element)
+        self.browser_manager.lib.driver.execute_script(
+            "arguments[0].value = '1';", select_element)
+        self.browser_manager.lib.driver.execute_script(
+            "arguments[0].dispatchEvent(new Event('change', { bubbles: " "true }));", select_element)
         time.sleep(2)
 
     def next_page(self):
-        self.browser_manager.wait_until_element_is_visible("css:.search-results-module-next-page")
-        next_month = self.browser_manager.find_element("css:.search-results-module-next-page")
+        self.browser_manager.wait_until_element_is_visible(
+            "css:.search-results-module-next-page")
+        next_month = self.browser_manager.find_element(
+            "css:.search-results-module-next-page")
         next_month.click()
         time.sleep(2)
 
     def get_articles(self):
         articles_data = []
-        self.browser_manager.wait_until_element_is_visible("css:.search-results-module-results-menu")
-        articles_parent = self.browser_manager.find_element("css:.search-results-module-results-menu")
-        all_li_elements = articles_parent.find_elements(by='tag name', value='li')
+        self.browser_manager.wait_until_element_is_visible(
+            "css:.search-results-module-results-menu")
+        articles_parent = self.browser_manager.find_element(
+            "css:.search-results-module-results-menu")
+        all_li_elements = articles_parent.find_elements(
+            by='tag name', value='li')
 
         for article in all_li_elements:
             article_html = article.get_attribute("outerHTML")
@@ -142,13 +171,15 @@ class Scraper:
 
             title = get_element_text_safe(article_element, "promo-title")
             date = get_element_text_safe(article_element, "promo-timestamp")
-            description = get_element_text_safe(article_element, "promo-description")
+            description = get_element_text_safe(
+                article_element, "promo-description")
 
             formatted_date = get_current_date_if_ago(date)
 
             if not is_valid_date_format(formatted_date, self.valid_months):
-                logger.info(f"Skipping article '{title}' with date '{formatted_date}' as it's not within the valid "
-                            f"months.")
+                logger.info(
+                    f"Skipping article '{title}' with date '{formatted_date}' as it's not within the valid "
+                    f"months.")
                 self.keep_going_to_next_page = False
                 return articles_data
 
@@ -169,7 +200,8 @@ class Scraper:
                     filename_parts = filename.split("%2F")
                     if len(filename_parts) > 1:
                         filename = filename_parts[-1]
-                    if not any(filename.lower().endswith(ext) for ext in ['.jpg', '.jpeg', '.png', '.gif']):
+                    if not any(filename.lower().endswith(ext)
+                               for ext in ['.jpg', '.jpeg', '.png', '.gif']):
                         filename += '.jpg'
                     filepath = os.path.join(directory_path, filename)
 
@@ -183,17 +215,19 @@ class Scraper:
                 logger.info("Image source not found.")
 
             title_count = title.lower().count(self.search_phrase.lower()) if title else 0
-            description_count = description.lower().count(self.search_phrase.lower()) if description else 0
-            contains_money = extract_money(title) or extract_money(description) if title or description else False
+            description_count = description.lower().count(
+                self.search_phrase.lower()) if description else 0
+            contains_money = extract_money(title) or extract_money(
+                description) if title or description else False
 
             article_data = {
                 "title": title,
                 "date": formatted_date,
                 "description": description,
                 "picture_filename": picture_filename,
-                "title_description_search_count": title_count + description_count,
-                "contains_money": contains_money
-            }
+                "title_description_search_count": title_count +
+                description_count,
+                "contains_money": contains_money}
 
             articles_data.append(article_data)
 
@@ -227,4 +261,3 @@ class Scraper:
             self.browser_manager.close_browser()
         except Exception as e:
             logger.error(f"Error in scraping: {e}")
-

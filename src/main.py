@@ -21,7 +21,6 @@ def main(current_dir):
     topic = item.payload.get("topic", "football")
     months = int(item.payload.get("months", 4))
     logger.info(f"Received payload: {search_phrase, topic, months}")
-    
     try:
         secrets = vault.get_secret("RpaChallenge")
         logger.info(secrets)
@@ -47,7 +46,13 @@ def main(current_dir):
         'environment': ['environment', 'climate', 'sustainability', 'green']
     }
 
-    scraper = Scraper(url, search_phrase, topic, months, categories, current_dir)
+    scraper = Scraper(
+        url,
+        search_phrase,
+        topic,
+        months,
+        categories,
+        current_dir)
     scraper.run()
     logger.info("RPA Challenge ended...")
 

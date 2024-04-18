@@ -53,7 +53,12 @@ def is_valid_date_format(date_str, valid_months):
         pattern_short = r'\b(?:jan\.|feb\.|mar\.|apr\.|may\.|jun\.|jul\.|aug\.|sep\.|oct\.|nov\.|dec\.)\s+\d{1,2},\s+\d{4}\b'
 
         # Check if the date string matches the patterns
-        if bool(re.match(pattern, date_str) or re.match(pattern_short, date_str)):
+        if bool(
+            re.match(
+                pattern,
+                date_str) or re.match(
+                pattern_short,
+                date_str)):
             # Extract month and year from the date string
             month_name, day, year = date_str.split()
             month_name = month_name.rstrip(',').lower()[:3]
